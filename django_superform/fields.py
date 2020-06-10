@@ -18,9 +18,10 @@ class BaseCompositeField(object):
     creation_counter = 0
 
     def __init__(self, required=True, widget=None, label=None, help_text='',
-                 localize=False, disabled=False):
+                 localize=False, disabled=False, **kwargs):
         self.required = required
         self.label = label
+        self.initial = kwargs.get('initial', {})
         self.help_text = help_text
         self.disabled = disabled
 

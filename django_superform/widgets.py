@@ -23,7 +23,7 @@ class TemplateWidget(forms.Widget):
     def get_context_data(self):
         return {}
 
-    def get_context(self, name, value, attrs=None):
+    def get_context(self, name, value, attrs=None, **kwargs):
         context = {
             'name': name,
             'hidden': self.is_hidden,
@@ -31,6 +31,7 @@ class TemplateWidget(forms.Widget):
             # In our case ``value`` is the form or formset instance.
             'value': value,
         }
+        renderer = kwargs.pop('renderer')
         if self.value_context_name:
             context[self.value_context_name] = value
 
@@ -49,8 +50,8 @@ class TemplateWidget(forms.Widget):
         context = self.get_context(name, value, attrs=attrs or {}, **kwargs)
         return loader.render_to_string(
             template_name,
-            dictionary=context,
-            context_instance=self.context_instance)
+            context=context,
+        )
 
 
 class FormWidget(TemplateWidget):
