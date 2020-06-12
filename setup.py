@@ -23,11 +23,11 @@ def find_version(*file_paths):
 setup(
     name='django-superform',
     version=find_version('django_superform', '__init__.py'),
-    author=u'Gregor Müllegger',
-    author_email='gregor@muellegger.de',
+    author=u'Stephen Odara',
+    author_email='darahsten@gmail.com',
     packages=find_packages(),
     include_package_data=True,
-    url='https://github.com/gregmuellegger/django-superform',
+    url='https://github.com/darahsten/django-superform',
     license='BSD licence, see LICENSE file',
     description='So much easier handling of formsets.',
     long_description=u'\n\n'.join((
