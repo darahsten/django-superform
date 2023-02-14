@@ -1,4 +1,7 @@
-from django.forms.forms import BoundField
+try:
+    from django.forms.forms import BoundField
+except ImportError:
+    from django.forms import BoundField
 
 
 class CompositeBoundField(BoundField):
